@@ -13,7 +13,7 @@ function App() {
 
 const SAMPLE_FLASHCARDS =[
   {
-    id: 1,
+    Id: 1,
     question: 'What is 2+2?',
     answer: '4',
     options:[
@@ -24,7 +24,7 @@ const SAMPLE_FLASHCARDS =[
     ]
   },
   {
-    id: 2,
+    Id: 2,
     question: 'question 2?',
     answer: 'answer',
     options:[

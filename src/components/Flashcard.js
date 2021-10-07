@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
+
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 const useStyles = makeStyles({
     Card:{
-        width:400,
+        width:300,
         height:200,
-    },
+        margin:"2%"
+       
+        
+      },
+      CardHeader:{
+       textAlign:"left",
+      } , 
         cardAction: {
-        color:"green",
+        color:"green"
         
         }
 });
@@ -31,20 +36,20 @@ const classes=useStyles();
       </div>
       <div>{flashcard.answer}</div>*/
   return (
-    <ButtonBase
+    <ButtonBase 
     className={classes.cardAction}
     onClick={() => setFlip(!flip)} > 
     <Card className={classes.Card} >
         
           {!flip ? (<>
-      <CardHeader title={flashcard.question}></CardHeader>
-      <CardContent>
+      <CardHeader className={classes.CardHeader} title={flashcard.question}></CardHeader>
+      <CardContent className={classes.CardHeader}>
         
-          {flashcard.options.map((option) => (
-         <Typography>   {option}</Typography>
+          {flashcard.options.map((option,i) => (
+         <Typography key={i}>   {option}</Typography>
           ))}
         
-      </CardContent></>) : (<><CardHeader title="The Correct answer is"></CardHeader><CardContent > <Typography variant="h4" > {flashcard.answer}</Typography></CardContent></>)}
+      </CardContent></>) : (<><CardHeader className={classes.CardHeader} title="The Correct answer is"></CardHeader><CardContent  > <Typography variant="h4" > {flashcard.answer}</Typography></CardContent></>)}
       
     </Card></ButtonBase>
   );
