@@ -9,7 +9,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 const useStyles = makeStyles({
     Card:{
         width:300,
-        height:200,
+        height:250,
         margin:"2%"
        
         
@@ -26,6 +26,7 @@ const useStyles = makeStyles({
 export default function Flashcard({ flashcard }) {
   const [flip, setFlip] = useState(false);
 const classes=useStyles(); 
+console.log(flashcard)
   //onClick={() => setFlip(!flip)}
   /*  {flashcard.question}
         <div >
@@ -42,14 +43,14 @@ const classes=useStyles();
     <Card className={classes.Card} >
         
           {!flip ? (<>
-      <CardHeader className={classes.CardHeader} title={flashcard.question}></CardHeader>
+      <CardHeader className={classes.CardHeader} subheader={flashcard.question} ></CardHeader>
       <CardContent className={classes.CardHeader}>
         
           {flashcard.options.map((option,i) => (
          <Typography key={i}>   {option}</Typography>
           ))}
         
-      </CardContent></>) : (<><CardHeader className={classes.CardHeader} title="The Correct answer is"></CardHeader><CardContent  > <Typography variant="h4" > {flashcard.answer}</Typography></CardContent></>)}
+      </CardContent></>) : (<><CardHeader className={classes.CardHeader} title="The Correct answer is"></CardHeader><CardContent  > <Typography variant="h4" color='green'> {flashcard.answer}</Typography></CardContent></>)}
       
     </Card></ButtonBase>
   );
