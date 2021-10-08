@@ -8,14 +8,16 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 const useStyles = makeStyles({
     Card:{
-        width:300,
-        height:250,
+      width:'100%',
+      minWidth:300,
+        height:'100%',
         margin:"2%"
        
         
       },
       CardHeader:{
        textAlign:"left",
+
       } , 
         cardAction: {
         color:"green"
@@ -42,15 +44,15 @@ console.log(flashcard)
     onClick={() => setFlip(!flip)} > 
     <Card className={classes.Card} >
         
-          {!flip ? (<>
-      <CardHeader className={classes.CardHeader} subheader={flashcard.question} ></CardHeader>
+          {!flip ? (<div style={{minWidth:'100%'}}>
+      <CardHeader className={classes.CardHeader} titleTypographyProps={{variant:'h6' }} title={flashcard.question} ></CardHeader>
       <CardContent className={classes.CardHeader}>
         
-          {flashcard.options.map((option,i) => (
-         <Typography key={i}>   {option}</Typography>
+          {flashcard.options.map(option => (
+         <Typography key={option}>   {option}</Typography>
           ))}
         
-      </CardContent></>) : (<><CardHeader className={classes.CardHeader} title="The Correct answer is"></CardHeader><CardContent  > <Typography variant="h4" color='green'> {flashcard.answer}</Typography></CardContent></>)}
+      </CardContent></div>) : (<div style={{minWidth:'100%'}}><CardHeader className={classes.CardHeader} title="The Correct answer is"></CardHeader><CardContent  > <Typography variant="h4" color='green'> {flashcard.answer}</Typography></CardContent></div>)}
       
     </Card></ButtonBase>
   );

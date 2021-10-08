@@ -7,7 +7,7 @@ export default function FlashcardList({flashcards}) {
         
         <Grid container rowSpacing={2} >
             <div style={{justifyContent:'center',alignItems:'center'}} >
-            {flashcards.map((f,i)=>(<Flashcard flashcard={f} key={i}></Flashcard>))}</div>
+            {flashcards.map(f=>(<Flashcard flashcard={f} key={f.id}></Flashcard>))}</div>
             </Grid>
            
     );
